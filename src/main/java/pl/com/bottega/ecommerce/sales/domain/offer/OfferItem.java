@@ -46,34 +46,21 @@ public class OfferItem {
     }
 
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(currency, discount, discountCause, productId, productName, productPrice, productSnapshotDate, productType,
-                quantity, totalCost);
+    @Override public int hashCode() {
+        return Objects.hash(product, discount, totalCost);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+
+    @Override public boolean equals(Object o) {
+        if (this == o) {
             return true;
         }
-        if (obj == null) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        OfferItem other = (OfferItem) obj;
-        return Objects.equals(currency, other.currency)
-               && Objects.equals(discount, other.discount)
-               && Objects.equals(discountCause, other.discountCause)
-               && Objects.equals(productId, other.productId)
-               && Objects.equals(productName, other.productName)
-               && Objects.equals(productPrice, other.productPrice)
-               && Objects.equals(productSnapshotDate, other.productSnapshotDate)
-               && Objects.equals(productType, other.productType)
-               && quantity == other.quantity
-               && Objects.equals(totalCost, other.totalCost);
+        OfferItem offerItem = (OfferItem) o;
+        return product.equals(offerItem.product) && Objects.equals(discount, offerItem.discount) && totalCost.equals(
+                offerItem.totalCost);
     }
 
     /**
